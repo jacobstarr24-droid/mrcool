@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returns &amp; Refunds — Mini Split Depot</title>
+  <meta name="description" content="Mini Split Depot returns and refunds policy — 30-day return window on uninstalled units, full refund process explained." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="announcement-placeholder"></div>
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <h1>Returns &amp; Refunds</h1>
+  <p>Our straightforward return policy &mdash; no runaround. <span style="font-size:0.85rem;opacity:0.75">Last updated: May 2026</span></p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="privacy-content">
+
+      <div class="shipping-highlights">
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+          <strong id="return-days-highlight">30-Day</strong>
+          <span>Return window</span>
+        </div>
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <strong>Full Product Refund</strong>
+          <span>Customer pays return shipping</span>
+        </div>
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <strong>Easy Process</strong>
+          <span>Contact us to start a return</span>
+        </div>
+      </div>
+
+      <h2>Return Eligibility</h2>
+      <p>We accept returns on orders that meet all of the following conditions:</p>
+      <ul>
+        <li>The return is requested within <strong id="return-days-text">30 days</strong> of the delivery date</li>
+        <li>The unit has <strong>not been installed</strong> (lineset connections not made, unit not mounted)</li>
+        <li>The unit is in its <strong>original packaging</strong> in undamaged, resaleable condition</li>
+        <li>All original components and accessories are included</li>
+      </ul>
+
+      <h2>How to Start a Return</h2>
+      <p>To initiate a return, <a href="contact.html">contact us</a> with the following information:</p>
+      <ul>
+        <li>Your order number</li>
+        <li>The reason for the return</li>
+        <li>Photos of the unit and packaging if applicable</li>
+      </ul>
+      <p>We will respond within 24 hours with return shipping instructions. Do not ship any items back before receiving return authorization from us.</p>
+
+      <h2>Refund Process</h2>
+      <p>Once we receive and inspect the returned unit, we will process your refund within 5&ndash;7 business days. Refunds are issued to the original payment method. You will receive an email confirmation when the refund has been processed.</p>
+      <p>Return shipping costs are the responsibility of the customer unless the return is due to our error (wrong item shipped, defective unit, or damage that occurred during transit).</p>
+
+      <h2>Installed Units</h2>
+      <p>Units that have been installed cannot be returned. Installation voids return eligibility because the refrigerant line connections and mounting process cannot be undone without affecting the unit&rsquo;s condition and warranty registration. If you have an issue with an installed unit, please <a href="contact.html">contact us</a> and we will help you work through the manufacturer warranty process.</p>
+
+      <h2>Damaged or Defective Units</h2>
+      <p>If your unit arrived damaged or is defective out of the box, <a href="contact.html">contact us immediately</a>. We will arrange a replacement or full refund at no cost to you, including return shipping. Please document any damage with photos at the time of delivery.</p>
+
+      <h2>Warranty Claims</h2>
+      <p>All units carry the manufacturer&rsquo;s warranty (7-year compressor, 5-year parts when registered within 30 days). Warranty claims for installed units are handled directly through the manufacturer. We are happy to assist you initiate a warranty claim &mdash; just <a href="contact.html">reach out</a> and we&rsquo;ll point you in the right direction.</p>
+
+      <h2>Questions?</h2>
+      <p>If you have any questions about returns or refunds, please <a href="contact.html">contact us</a>. We respond within 24 hours, Mon &ndash; Fri.</p>
+
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const days = CONFIG.policies.returnDays;
+  const highlight = document.getElementById('return-days-highlight');
+  const text      = document.getElementById('return-days-text');
+  if (highlight) highlight.textContent = days + '-Day';
+  if (text)      text.textContent      = days + ' days';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — Mini Split Depot</title>
+  <meta name="description" content="Review your cart and place your order." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="announcement-placeholder"></div>
+<div id="nav-placeholder"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CART + CHECKOUT VIEW
+═══════════════════════════════════════════════════════════════ -->
+<div id="cart-view">
+
+  <div class="page-header">
+    <h1>Your Cart</h1>
+    <p>Review your items, then complete your order below.</p>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:860px">
+
+      <!-- Empty state -->
+      <div id="cart-empty" style="display:none;text-align:center;padding:72px 0">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--grey-border)" stroke-width="1.5" aria-hidden="true" style="margin:0 auto 20px;display:block">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <h2 style="color:var(--blue-dark);margin-bottom:10px">Your cart is empty</h2>
+        <p style="color:var(--text-muted);margin-bottom:28px">Browse our products and add something to get started.</p>
+        <a href="products.html" class="btn btn-primary btn-lg">Shop All Units</a>
+      </div>
+
+      <!-- Has items -->
+      <div id="cart-has-items">
+
+        <!-- Item list -->
+        <div id="cart-items-list"></div>
+
+        <!-- Totals -->
+        <div class="cart-totals-box">
+          <div class="cart-total-row">
+            <span>Retail Value</span><span id="cart-retail-display">$0</span>
+          </div>
+          <div class="cart-total-row" style="color:var(--green)">
+            <span>Your Savings</span><span id="cart-savings-display">-$0</span>
+          </div>
+          <div class="cart-total-row">
+            <span>Shipping</span>
+            <span style="color:var(--green);font-weight:700">Free</span>
+          </div>
+          <div class="cart-total-row cart-total-final">
+            <span>Order Total</span><span id="cart-total-display">$0</span>
+          </div>
+        </div>
+
+        <!-- ── CHECKOUT FORM ─────────────────────────────────── -->
+        <div style="margin-top:48px">
+          <div style="background:var(--blue-tint);border-left:4px solid var(--blue-mid);border-radius:var(--radius);padding:16px 20px;margin-bottom:28px;font-size:0.875rem;color:var(--text-mid);line-height:1.6">
+            <strong style="color:var(--blue-dark);display:block;margin-bottom:4px">How ordering works</strong>
+            Submitting this form generates a Purchase Order for your records. We will contact you at the email you provide to confirm your order and arrange payment. No payment is collected on this form.
+          </div>
+          <div class="checkout-header">Shipping &amp; Contact Information</div>
+
+          <form id="checkout-form" novalidate>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="co-first">First Name <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="text" id="co-first" name="first_name" required autocomplete="given-name" placeholder="Jane" />
+              </div>
+              <div class="form-group">
+                <label for="co-last">Last Name <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="text" id="co-last" name="last_name" required autocomplete="family-name" placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="co-company">Company (optional)</label>
+              <input type="text" id="co-company" name="company" autocomplete="organization" placeholder="Smith Enterprises LLC" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="co-email">Email Address <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="email" id="co-email" name="email" required autocomplete="email" placeholder="jane@example.com" />
+              </div>
+              <div class="form-group">
+                <label for="co-phone">Phone <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="tel" id="co-phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="co-address">Street Address <span style="color:var(--red)" aria-hidden="true">*</span></label>
+              <input type="text" id="co-address" name="address" required autocomplete="street-address" placeholder="123 Main Street" />
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label for="co-city">City <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="text" id="co-city" name="city" required autocomplete="address-level2" placeholder="Dallas" />
+              </div>
+              <div class="form-group">
+                <label for="co-state">State <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="text" id="co-state" name="state" required autocomplete="address-level1" placeholder="TX" maxlength="2" style="text-transform:uppercase" />
+              </div>
+              <div class="form-group">
+                <label for="co-zip">ZIP <span style="color:var(--red)" aria-hidden="true">*</span></label>
+                <input type="text" id="co-zip" name="zip" required autocomplete="postal-code" placeholder="75001" maxlength="10" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="co-notes">Notes (optional)</label>
+              <textarea id="co-notes" name="notes" placeholder="Any special instructions for your order…" style="min-height:80px"></textarea>
+            </div>
+
+            <div id="checkout-error" class="form-message error" role="alert" style="display:none"></div>
+
+            <button type="submit" id="checkout-submit" class="btn btn-primary btn-lg btn-full" style="margin-top:8px">
+              Place Order &rarr;
+            </button>
+
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;text-align:center">
+              Free shipping on all orders. Partner pricing applied to your order total.
+            </p>
+
+          </form>
+        </div>
+
+      </div><!-- /cart-has-items -->
+
+    </div>
+  </section>
+
+</div><!-- /cart-view -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PO VIEW (displayed after order is placed)
+═══════════════════════════════════════════════════════════════ -->
+<div id="po-view" style="display:none">
+
+  <div class="page-header" style="background:linear-gradient(100deg,#059669,#10b981)" id="po-success-header">
+    <h1>Order Placed!</h1>
+    <p>Your Purchase Order has been generated. Print or save it for your records.</p>
+  </div>
+
+  <section class="section">
+    <div class="container" style="max-width:900px">
+
+      <div class="po-actions no-print" style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap">
+        <button onclick="window.print()" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save PDF
+        </button>
+        <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+      </div>
+
+      <div id="po-document" class="po-document">
+        <!-- Filled by buildPODocument() -->
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /po-view -->
+
+<div id="footer-placeholder" class="no-print"></div>
+
+<script src="config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+<script>
+/* ================================================================
+   Cart page logic
+================================================================ */
+
+// ── Helpers ──────────────────────────────────────────────────────
+
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function today() {
+  const d = new Date();
+  return (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+}
+
+function imgSrc(product) {
+  return product.depot.image || product.mrcool.image || '';
+}
+
+// ── Render cart items ─────────────────────────────────────────────
+
+function renderCart() {
+  const lines  = Cart.lines();
+  const empty  = document.getElementById('cart-empty');
+  const filled = document.getElementById('cart-has-items');
+
+  if (!lines.length) {
+    empty.style.display  = 'block';
+    filled.style.display = 'none';
+    return;
+  }
+
+  empty.style.display  = 'none';
+  filled.style.display = 'block';
+
+  const list = document.getElementById('cart-items-list');
+  list.innerHTML = '';
+
+  lines.forEach(({ qty, product: p }) => {
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+
+    // Image
+    const imgDiv = document.createElement('div');
+    imgDiv.className = 'cart-item-img';
+    const img = document.createElement('img');
+    img.src = imgSrc(p);
+    img.alt = p.name;
+    img.addEventListener('error', () => { imgDiv.style.background = 'var(--grey-light)'; imgDiv.innerHTML = ''; });
+    imgDiv.appendChild(img);
+
+    const lineTotal = p.depot.price * qty;
+
+    item.innerHTML = `
+      <div class="cart-item-info">
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-meta">
+          ${p.generation} &bull; SKU: ${p.sku}
+          ${p.plugIn ? ' &bull; <span style="color:#15803d;font-weight:600">115V Plug-In</span>' : ''}
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px">
+          <s>${fmt(p.mrcool.price)}</s> &rarr; <strong style="color:var(--blue-dark)">${fmt(p.depot.price)}</strong> each &mdash; <span style="color:var(--green);font-weight:600">save $${(p.mrcool.price - p.depot.price).toLocaleString()}</span>
+        </div>
+      </div>
+      <div class="cart-qty-group" style="width:fit-content">
+        <button class="cart-qty-btn" data-action="dec" data-id="${p.id}" aria-label="Decrease">&#8722;</button>
+        <input type="number" class="cart-qty-input" data-id="${p.id}" value="${qty}" min="1" max="99" aria-label="Quantity" />
+        <button class="cart-qty-btn" data-action="inc" data-id="${p.id}" aria-label="Increase">&#43;</button>
+      </div>
+      <div class="cart-item-price">${fmt(lineTotal)}</div>
+      <button class="cart-remove-btn" data-id="${p.id}" aria-label="Remove item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+      </button>`;
+
+    item.prepend(imgDiv);
+    list.appendChild(item);
+  });
+
+  // Totals
+  const retailTotal = lines.reduce((sum, { qty, product }) => sum + product.mrcool.price * qty, 0);
+  const orderTotal  = Cart.subtotal();
+  const savings     = retailTotal - orderTotal;
+  document.getElementById('cart-retail-display').textContent  = fmt(retailTotal);
+  document.getElementById('cart-savings-display').textContent = '-' + fmt(savings);
+  document.getElementById('cart-total-display').textContent   = fmt(orderTotal);
+
+  // Qty / remove events
+  list.querySelectorAll('.cart-qty-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id   = btn.dataset.id;
+      const inp  = list.querySelector(`.cart-qty-input[data-id="${id}"]`);
+      const cur  = parseInt(inp.value, 10) || 1;
+      const next = btn.dataset.action === 'inc' ? cur + 1 : cur - 1;
+      Cart.setQty(id, next);
+      renderCart();
+    });
+  });
+
+  list.querySelectorAll('.cart-qty-input').forEach(inp => {
+    inp.addEventListener('change', () => {
+      Cart.setQty(inp.dataset.id, inp.value);
+      renderCart();
+    });
+  });
+
+  list.querySelectorAll('.cart-remove-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      Cart.remove(btn.dataset.id);
+      renderCart();
+    });
+  });
+}
+
+// ── Build PO document HTML ────────────────────────────────────────
+
+function buildPODocument(order) {
+  const { poNumber, date, customer, lines, subtotal } = order;
+
+  const itemRows = lines.map((line, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td>${line.product.generation} ${line.product.name}${line.product.plugIn ? ' — 115V' : ''}</td>
+      <td>${line.product.sku}</td>
+      <td class="num">${line.qty}</td>
+      <td class="num">${fmt(line.product.depot.price)}</td>
+      <td class="num">${fmt(line.product.depot.price * line.qty)}</td>
+    </tr>`).join('');
+
+  const shipTo = [
+    customer.name,
+    customer.company,
+    customer.address,
+    customer.city + ', ' + customer.state + ' ' + customer.zip,
+    customer.phone,
+    customer.email,
+  ].filter(Boolean).join('<br>');
+
+  const notes = customer.notes
+    ? 'Free Shipping.<br>' + customer.notes.replace(/</g, '&lt;')
+    : 'Free Shipping.';
+
+  return `
+    <div class="po-title">PURCHASE ORDER</div>
+
+    <div class="po-top-grid">
+      <div>
+        <div class="po-label">PURCHASER</div>
+        <div class="po-purchaser-detail">
+          <strong>${CONFIG.brand.name}</strong><br>
+          Email: ${CONFIG.brand.email}<br>
+          Website: ${CONFIG.brand.domain}
+        </div>
+      </div>
+      <div>
+        <table class="po-meta-table">
+          <tr><td>DATE</td><td>${date}</td></tr>
+          <tr><td>PO&nbsp;#</td><td>[${poNumber}]</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="po-parties-grid">
+      <div class="po-party-col">
+        <div class="po-label">VENDOR</div>
+        <div class="po-party-detail">
+          MRCOOL, LLC<br>
+          [Vendor address on file]
+        </div>
+      </div>
+      <div class="po-party-col">
+        <div class="po-label">SHIP TO</div>
+        <div class="po-party-detail">${shipTo}</div>
+      </div>
+    </div>
+
+    <table class="po-items-table">
+      <thead>
+        <tr>
+          <th style="width:56px">ITEM #</th>
+          <th>DESCRIPTION</th>
+          <th style="width:140px">SKU</th>
+          <th class="num" style="width:56px">QTY</th>
+          <th class="num" style="width:100px">UNIT PRICE</th>
+          <th class="num" style="width:100px">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${itemRows}
+      </tbody>
+    </table>
+
+    <div class="po-footer-grid">
+      <div class="po-comments-col">
+        <div class="po-comments-label">Comments or Special Instructions</div>
+        <p style="font-size:0.875rem;color:#555;margin:0">${notes}</p>
+      </div>
+      <div>
+        <div class="po-total-row"><span class="po-total-key">SUBTOTAL</span><span class="po-total-val">${fmt(subtotal)}</span></div>
+        <div class="po-total-row"><span class="po-total-key">TAX</span><span class="po-total-val">&mdash;</span></div>
+        <div class="po-total-row"><span class="po-total-key">SHIPPING</span><span class="po-total-val">&mdash;</span></div>
+        <div class="po-total-row"><span class="po-total-key">OTHER</span><span class="po-total-val">&mdash;</span></div>
+        <div class="po-total-final-row"><span class="po-total-key">TOTAL</span><span class="po-total-val">${fmt(subtotal)}</span></div>
+      </div>
+    </div>
+
+    <div class="po-contact-line">
+      If you have any questions about this purchase order, please contact<br>
+      [${CONFIG.brand.name}, ${CONFIG.brand.email}]
+    </div>`;
+}
+
+// ── Checkout form submit ──────────────────────────────────────────
+
+document.getElementById('checkout-form').addEventListener('submit', e => {
+  e.preventDefault();
+
+  const errEl = document.getElementById('checkout-error');
+  errEl.style.display = 'none';
+
+  // Validate
+  const required = ['co-first', 'co-last', 'co-email', 'co-phone', 'co-address', 'co-city', 'co-state', 'co-zip'];
+  for (const id of required) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      errEl.textContent = 'Please fill in all required fields.';
+      errEl.style.display = 'block';
+      el.focus();
+      return;
+    }
+  }
+
+  const lines = Cart.lines();
+  if (!lines.length) {
+    errEl.textContent = 'Your cart is empty.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  const get = id => document.getElementById(id).value.trim();
+
+  const customer = {
+    name:    get('co-first') + ' ' + get('co-last'),
+    company: get('co-company'),
+    email:   get('co-email'),
+    phone:   get('co-phone'),
+    address: get('co-address'),
+    city:    get('co-city'),
+    state:   get('co-state').toUpperCase(),
+    zip:     get('co-zip'),
+    notes:   get('co-notes'),
+  };
+
+  const order = {
+    poNumber: Cart.nextPONumber(),
+    date:     today(),
+    customer,
+    lines:    lines.map(l => ({ product: l.product, qty: l.qty })),
+    subtotal: Cart.subtotal(),
+  };
+
+  Cart.saveOrder(order);
+  Cart.clear();
+
+  // Build and show PO
+  document.getElementById('po-document').innerHTML = buildPODocument(order);
+  document.getElementById('cart-view').style.display = 'none';
+  document.getElementById('po-view').style.display   = 'block';
+  window.scrollTo(0, 0);
+});
+
+// ── Init ──────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderCart();
+  document.addEventListener('cart:updated', renderCart);
+});
+</script>
+</body>
+</html>

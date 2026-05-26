@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://minisplitdepot.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://minisplitdepot.com/products.html</loc><priority>0.9</priority></url>
+  <url><loc>https://minisplitdepot.com/comparison.html</loc><priority>0.9</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=9k</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=12k</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=18k</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=24k</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=36k</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=9k-115v</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/product.html?id=12k-115v</loc><priority>0.8</priority></url>
+  <url><loc>https://minisplitdepot.com/faq.html</loc><priority>0.7</priority></url>
+  <url><loc>https://minisplitdepot.com/about.html</loc><priority>0.6</priority></url>
+  <url><loc>https://minisplitdepot.com/contact.html</loc><priority>0.6</priority></url>
+  <url><loc>https://minisplitdepot.com/shipping.html</loc><priority>0.5</priority></url>
+  <url><loc>https://minisplitdepot.com/returns.html</loc><priority>0.5</priority></url>
+  <url><loc>https://minisplitdepot.com/privacy.html</loc><priority>0.3</priority></url>
+</urlset>

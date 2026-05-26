@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price Comparison — Mini Split Depot vs. MRCOOL</title>
+  <meta name="description" content="Compare mini split prices side by side. See MRCOOL's price vs. Mini Split Depot's partner pricing — same units, shipped direct." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Price Comparison — Mini Split Depot vs. MRCOOL" />
+  <meta property="og:description" content="See every unit side by side. Same product, partner pricing at Mini Split Depot." />
+  <meta property="og:image"       content="images/og-image.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="announcement-placeholder"></div>
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <h1>Price Comparison</h1>
+  <p>MRCOOL at retail on the left. The same unit at Mini Split Depot partner pricing on the right.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="savings-summary" id="savings-summary" style="display:none"></div>
+
+    <div class="comparison-labels">
+      <div class="col-label col-label-mrcool">MRCOOL &mdash; Retail Price</div>
+      <div class="col-label col-label-depot">Mini Split Depot &mdash; Best Price</div>
+    </div>
+
+    <div id="comparison-grid">
+      <p style="text-align:center;color:var(--text-muted);padding:48px 0">Loading products&hellip;</p>
+    </div>
+
+    <!-- 115V callout -->
+    <div style="margin-top:28px;background:var(--blue-tint);border-radius:var(--radius);padding:18px 24px;border-left:4px solid var(--blue-mid);display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div>
+        <strong style="color:var(--blue-dark)">Also available: 115V Plug-In models (9k &amp; 12k BTU)</strong>
+        <span style="color:var(--text-muted);font-size:0.875rem;display:block;margin-top:2px">Plug into any standard household outlet &mdash; no electrician, no 240V circuit required.</span>
+      </div>
+      <a href="products.html" class="btn btn-outline btn-sm" style="margin-left:auto;white-space:nowrap">Shop Plug-In Units &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center">
+    <h2 class="section-title">Ready to order?</h2>
+    <p class="section-subtitle">Browse the full catalog or get in touch with a question.</p>
+    <div class="hero-actions" style="justify-content:center">
+      <a href="products.html" class="btn btn-primary btn-lg">Shop All Products</a>
+      <a href="contact.html"  class="btn btn-outline btn-lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/comparison.js"></script>
+</body>
+</html>

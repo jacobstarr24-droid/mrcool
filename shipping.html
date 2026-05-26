@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipping Policy — Mini Split Depot</title>
+  <meta name="description" content="Mini Split Depot shipping policy — processing times, delivery estimates, free shipping, and order tracking." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="announcement-placeholder"></div>
+<div id="nav-placeholder"></div>
+
+<div class="page-header">
+  <h1>Shipping Policy</h1>
+  <p>Everything you need to know about how and when your order ships. <span style="font-size:0.85rem;opacity:0.75">Last updated: May 2026</span></p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="privacy-content">
+
+      <div class="shipping-highlights">
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          <strong>Free Shipping</strong>
+          <span>On all orders to the contiguous US</span>
+        </div>
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <strong id="ship-processing">1–2 Business Days</strong>
+          <span>Processing time</span>
+        </div>
+        <div class="shipping-highlight-card">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--blue-mid)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          <strong id="ship-delivery">5–7 Business Days</strong>
+          <span>Estimated delivery</span>
+        </div>
+      </div>
+
+      <h2>Free Shipping</h2>
+      <p>We offer free standard shipping on all orders shipped to addresses in the contiguous United States. Shipping to Alaska, Hawaii, and US territories may be subject to additional fees — <a href="contact.html">contact us</a> before ordering if you need delivery outside the contiguous US.</p>
+
+      <h2>Processing Time</h2>
+      <p>Orders are typically processed and dispatched within <strong id="ship-processing-inline">1–2 business days</strong> of placement. Orders placed on weekends or holidays will begin processing on the next business day.</p>
+
+      <h2>Delivery Estimates</h2>
+      <p>Once shipped, standard delivery takes approximately <strong id="ship-delivery-inline">5–7 business days</strong> depending on your location. Delivery times are estimates and not guaranteed. Remote or rural addresses may take slightly longer.</p>
+
+      <h2>Order Tracking</h2>
+      <p>You will receive a shipping confirmation email with a tracking number once your order has been dispatched. You can use this tracking number on the carrier&rsquo;s website to monitor your shipment in real time.</p>
+      <p>If you have not received a tracking number within 2 business days of placing your order, please <a href="contact.html">contact us</a> and we will look into it right away.</p>
+
+      <h2>Packaging</h2>
+      <p>Mini split units are large, heavy items and ship via freight or LTL (less-than-truckload) carrier. The delivery will typically be curbside — the carrier will bring the shipment to the curb or driveway. If you require inside delivery or white-glove service, please <a href="contact.html">contact us</a> prior to ordering.</p>
+
+      <h2>Damaged Shipments</h2>
+      <p>Please inspect your shipment carefully at delivery before signing. If you notice visible damage to the packaging or the unit, note the damage on the delivery receipt and take photos before accepting. Contact us within 48 hours of delivery at <a href="contact.html">our contact page</a> and we will work to resolve the issue promptly.</p>
+
+      <h2>Expedited Shipping</h2>
+      <p>Expedited shipping may be available on a case-by-case basis. <a href="contact.html">Contact us</a> before placing your order to inquire about faster delivery options and any associated costs.</p>
+
+      <h2>Questions?</h2>
+      <p>If you have any questions about shipping, don&rsquo;t hesitate to <a href="contact.html">reach out</a>. We typically respond within 24 hours, Mon &ndash; Fri.</p>
+
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const proc = CONFIG.shipping.processingDays + ' Business Days';
+  const delv = CONFIG.shipping.deliveryDays   + ' Business Days';
+  ['ship-processing', 'ship-processing-inline'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = proc;
+  });
+  ['ship-delivery', 'ship-delivery-inline'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = delv;
+  });
+});
+</script>
+</body>
+</html>
