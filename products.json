@@ -1,0 +1,102 @@
+[
+  {
+    "id": "9k",
+    "name": "9,000 BTU Mini Split",
+    "btu": 9000,
+    "coverage": "Up to 450 sq ft",
+    "seer": 20,
+    "description": "Ideal for bedrooms, home offices, and small living spaces. Whisper-quiet operation at just 26 dB.",
+    "features": ["20 SEER2 Rating", "WiFi Enabled", "Sleep Mode", "Auto Restart"],
+    "stock": 4,
+    "mrcool": {
+      "price": 729,
+      "image": "images/mrcool/9k.jpg",
+      "url": "#"
+    },
+    "depot": {
+      "price": 656,
+      "image": "images/depot/9k.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "id": "12k",
+    "name": "12,000 BTU Mini Split",
+    "btu": 12000,
+    "coverage": "Up to 600 sq ft",
+    "seer": 20,
+    "description": "A top seller for medium-sized rooms and open-concept spaces. Fast cooling with precise temperature control.",
+    "features": ["20 SEER2 Rating", "WiFi Enabled", "Dehumidification Mode", "Auto Restart"],
+    "stock": 9,
+    "mrcool": {
+      "price": 899,
+      "image": "images/mrcool/12k.jpg",
+      "url": "#"
+    },
+    "depot": {
+      "price": 809,
+      "image": "images/depot/12k.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "id": "18k",
+    "name": "18,000 BTU Mini Split",
+    "btu": 18000,
+    "coverage": "Up to 900 sq ft",
+    "seer": 20,
+    "description": "Perfect for large bedrooms, living rooms, and open floor plans. Handles extreme temperatures effortlessly.",
+    "features": ["20 SEER2 Rating", "WiFi Enabled", "Turbo Mode", "Self-Cleaning"],
+    "stock": 3,
+    "mrcool": {
+      "price": 1099,
+      "image": "images/mrcool/18k.jpg",
+      "url": "#"
+    },
+    "depot": {
+      "price": 989,
+      "image": "images/depot/18k.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "id": "24k",
+    "name": "24,000 BTU Mini Split",
+    "btu": 24000,
+    "coverage": "Up to 1,200 sq ft",
+    "seer": 17,
+    "description": "Built for large open areas, great rooms, and commercial spaces. High-efficiency performance year-round.",
+    "features": ["17 SEER2 Rating", "WiFi Enabled", "Turbo Mode", "Self-Cleaning"],
+    "stock": 11,
+    "mrcool": {
+      "price": 1349,
+      "image": "images/mrcool/24k.jpg",
+      "url": "#"
+    },
+    "depot": {
+      "price": 1214,
+      "image": "images/depot/24k.jpg",
+      "url": "#"
+    }
+  },
+  {
+    "id": "36k",
+    "name": "36,000 BTU Mini Split",
+    "btu": 36000,
+    "coverage": "Up to 1,800 sq ft",
+    "seer": 18,
+    "description": "Maximum power for large homes, workshops, and commercial applications. Professional-grade efficiency.",
+    "features": ["18 SEER2 Rating", "WiFi Enabled", "Turbo Mode", "Auto-Diagnosis"],
+    "stock": 2,
+    "mrcool": {
+      "price": 1699,
+      "image": "images/mrcool/36k.jpg",
+      "url": "#"
+    },
+    "depot": {
+      "price": 1529,
+      "image": "images/depot/36k.jpg",
+      "url": "#"
+    }
+  }
+]
